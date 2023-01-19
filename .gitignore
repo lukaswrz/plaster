@@ -1,0 +1,4 @@
+*.o
+plaster
+.ninja_deps
+.ninja_log

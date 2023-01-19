@@ -1,0 +1,16 @@
+include config.ninja
+
+rule compile
+  command = $cc $cflags -c -o $out $in
+
+rule link
+  command = $cc $cflags -o $out $in $ldflags $ldlibs
+
+build main.o: compile main.c
+build w.o: compile w.c
+build scanner.o: compile scanner.c
+build $target: link main.o w.o scanner.o
+
+build all: phony $target
+
+default all
